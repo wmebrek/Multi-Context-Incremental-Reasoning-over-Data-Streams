@@ -1,0 +1,95 @@
+(Add justification then propagate => ,trafficDense :- w_te_2_d_congestionHigh.,< trafficDense, [w_te_2_d_congestionHigh] >)
+(Add justification then propagate => ,congestionHigh_at(0) :- w_te_1_at_T_congestion_at(0).,< congestionHigh_at(0), [w_te_1_at_T_congestion_at(0)] >)
+(Add justification then propagate => ,w_te_2_d_congestionHigh :- congestionHigh_at(0).,< w_te_2_d_congestionHigh, [congestionHigh_at(0)] >)
+(Add justification then propagate => ,w_te_1_at_T_congestion_at(0) :- congestion_at(0).,< w_te_1_at_T_congestion_at(0), [congestion_at(0)] >)
+(Add justification then propagate => ,congestionHigh_at(0) :- congestionHigh.,< congestionHigh_at(0), [congestionHigh] >)
+(Add justification then propagate => ,congestion_at(0) :- congestion.,< congestion_at(0), [congestion] >)
+(
+
+remove justification and associated nodes,congestionHigh_at(0) :- congestionHigh.)
+(
+
+remove justification and associated nodes,congestion_at(0) :- congestion.)
+(Add justification then propagate => ,congestionHigh_at(1) :- w_te_1_at_T_congestion_at(1).,< congestionHigh_at(1), [w_te_1_at_T_congestion_at(1)] >)
+(Add justification then propagate => ,w_te_2_d_congestionHigh :- congestionHigh_at(1).,< w_te_2_d_congestionHigh, [congestionHigh_at(1)] >)
+(Add justification then propagate => ,w_te_1_at_T_congestion_at(1) :- congestion_at(1).,< w_te_1_at_T_congestion_at(1), [congestion_at(1)] >)
+(Add justification then propagate => ,congestionHigh_at(1) :- congestionHigh.,< congestionHigh_at(1), [congestionHigh] >)
+(Add justification then propagate => ,congestion_at(1) :- congestion.,< congestion_at(1), [congestion] >)
+5s (t=1): Set()
+(
+
+remove justification and associated nodes,congestionHigh_at(0) :- w_te_1_at_T_congestion_at(0).)
+(
+
+remove justification and associated nodes,w_te_1_at_T_congestion_at(0) :- congestion_at(0).)
+(
+
+remove justification and associated nodes,congestionHigh_at(1) :- congestionHigh.)
+(
+
+remove justification and associated nodes,congestion_at(1) :- congestion.)
+(Add justification then propagate => ,congestionHigh_at(2) :- w_te_1_at_T_congestion_at(2).,< congestionHigh_at(2), [w_te_1_at_T_congestion_at(2)] >)
+(Add justification then propagate => ,w_te_2_d_congestionHigh :- congestionHigh_at(2).,< w_te_2_d_congestionHigh, [congestionHigh_at(2)] >)
+(Add justification then propagate => ,w_te_1_at_T_congestion_at(2) :- congestion_at(2).,< w_te_1_at_T_congestion_at(2), [congestion_at(2)] >)
+(Add justification then propagate => ,congestionHigh_at(2) :- congestionHigh.,< congestionHigh_at(2), [congestionHigh] >)
+(Add justification then propagate => ,congestion_at(2) :- congestion.,< congestion_at(2), [congestion] >)
+(
+
+remove justification and associated nodes,w_te_1_at_T_congestion_at(1) :- congestion_at(1).)
+(
+
+remove justification and associated nodes,w_te_2_d_congestionHigh :- congestionHigh_at(0).)
+(
+
+remove justification and associated nodes,congestionHigh_at(2) :- congestionHigh.)
+(
+
+remove justification and associated nodes,congestion_at(2) :- congestion.)
+(
+
+remove justification and associated nodes,congestionHigh_at(1) :- w_te_1_at_T_congestion_at(1).)
+(Add justification then propagate => ,congestionHigh_at(3) :- w_te_1_at_T_congestion_at(3).,< congestionHigh_at(3), [w_te_1_at_T_congestion_at(3)] >)
+(Add justification then propagate => ,w_te_2_d_congestionHigh :- congestionHigh_at(3).,< w_te_2_d_congestionHigh, [congestionHigh_at(3)] >)
+(Add justification then propagate => ,w_te_1_at_T_congestion_at(3) :- congestion_at(3).,< w_te_1_at_T_congestion_at(3), [congestion_at(3)] >)
+(Add justification then propagate => ,congestionHigh_at(3) :- congestionHigh.,< congestionHigh_at(3), [congestionHigh] >)
+(Add justification then propagate => ,congestion_at(3) :- congestion.,< congestion_at(3), [congestion] >)
+(
+
+remove justification and associated nodes,congestion_at(3) :- congestion.)
+(
+
+remove justification and associated nodes,congestionHigh_at(2) :- w_te_1_at_T_congestion_at(2).)
+(
+
+remove justification and associated nodes,w_te_1_at_T_congestion_at(2) :- congestion_at(2).)
+(
+
+remove justification and associated nodes,congestionHigh_at(3) :- congestionHigh.)
+(
+
+remove justification and associated nodes,w_te_2_d_congestionHigh :- congestionHigh_at(1).)
+(Add justification then propagate => ,congestionHigh_at(4) :- w_te_1_at_T_congestion_at(4).,< congestionHigh_at(4), [w_te_1_at_T_congestion_at(4)] >)
+(Add justification then propagate => ,w_te_2_d_congestionHigh :- congestionHigh_at(4).,< w_te_2_d_congestionHigh, [congestionHigh_at(4)] >)
+(Add justification then propagate => ,w_te_1_at_T_congestion_at(4) :- congestion_at(4).,< w_te_1_at_T_congestion_at(4), [congestion_at(4)] >)
+(Add justification then propagate => ,congestionHigh_at(4) :- congestionHigh.,< congestionHigh_at(4), [congestionHigh] >)
+(Add justification then propagate => ,congestion_at(4) :- congestion.,< congestion_at(4), [congestion] >)
+(
+
+remove justification and associated nodes,w_te_2_d_congestionHigh :- congestionHigh_at(2).)
+(
+
+remove justification and associated nodes,congestionHigh_at(4) :- congestionHigh.)
+(
+
+remove justification and associated nodes,congestionHigh_at(3) :- w_te_1_at_T_congestion_at(3).)
+(
+
+remove justification and associated nodes,w_te_1_at_T_congestion_at(3) :- congestion_at(3).)
+(
+
+remove justification and associated nodes,congestion_at(4) :- congestion.)
+(Add justification then propagate => ,congestionHigh_at(5) :- w_te_1_at_T_congestion_at(5).,< congestionHigh_at(5), [w_te_1_at_T_congestion_at(5)] >)
+(Add justification then propagate => ,w_te_2_d_congestionHigh :- congestionHigh_at(5).,< w_te_2_d_congestionHigh, [congestionHigh_at(5)] >)
+(Add justification then propagate => ,w_te_1_at_T_congestion_at(5) :- congestion_at(5).,< w_te_1_at_T_congestion_at(5), [congestion_at(5)] >)
+(Add justification then propagate => ,congestionHigh_at(5) :- congestionHigh.,< congestionHigh_at(5), [congestionHigh] >)
+(Add justification then propagate => ,congestion_at(5) :- congestion.,< congestion_at(5), [congestion] >)

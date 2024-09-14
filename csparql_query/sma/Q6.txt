@@ -1,0 +1,45 @@
+CONSTRUCT {
+	_:c0 <http://purl.oclc.org/NET/sao/hasValue> ?congestion .
+	_:c0 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p1 .
+	_:c0 <http://www.w3.org/2000/01/rdf-schema#label> ?label.
+} 
+
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0> [range 10s step 10s]
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#UserLocationService> [range 10s step 10s]
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0> [range 10s step 10s]
+where {
+
+?p1   a <http://www.insight-centre.org/citytraffic#CongestionLevel>.
+?p1 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?v2.
+?v2 <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat1.
+?v2 <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng1.
+?v2 <http://www.insight-centre.org/citytraffic#hasEndLatitude> ?lat2.
+?v2 <http://www.insight-centre.org/citytraffic#hasEndLongitude> ?lng2.
+
+?p4   a <http://www.insight-centre.org/citytraffic#ParkingVacancy>.
+?p4 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi4.
+?foi4 <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat4.
+?foi4 <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng4.
+?foi4 <http://www.w3.org/2000/01/rdf-schema#label> ?label.
+
+{
+	?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p1.
+	?obId1 <http://purl.oclc.org/NET/sao/hasValue> ?congestion.
+	?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0>.
+}
+
+{
+	?obId3 a ?ob.
+	?obId3 <http://purl.oclc.org/NET/sao/hasValue> ?v3.
+	?v3 <http://www.insight-centre.org/citytraffic#hasLatitude> ?lat3.
+	?v3 <http://www.insight-centre.org/citytraffic#hasLongitude> ?lng3.
+	?obId3 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#UserLocationService>.
+}
+
+{
+?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p4.
+?obId4 <http://purl.oclc.org/NET/sao/hasValue> ?parkingCapacity.
+?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0>.
+}
+
+}

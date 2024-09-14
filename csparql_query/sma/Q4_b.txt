@@ -1,0 +1,31 @@
+select distinct ?foi ?parkingCapacity ?lat1 ?lng1 ?avglat ?avglng
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0> [range 10s step 10s]
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#UserLocationService> [range 10s step 10s] 
+where {
+
+?p1   a <http://www.insight-centre.org/citytraffic#ParkingVacancy>.
+?p1 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi.
+?foi <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat1.
+?foi <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng1.
+
+
+{
+?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p1.
+?obId1 <http://purl.oclc.org/NET/sao/hasValue> ?parkingCapacity.
+?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0>.
+}
+
+{ select ( AVG (?lat3 ) AS ?avglat ) ( AVG (?lng3 ) AS ?avglng ) 
+	where 
+	{ 
+	?obId3 a ?ob.
+	?obId3 <http://purl.oclc.org/NET/sao/hasValue> ?v3.
+	?v3 <http://www.insight-centre.org/citytraffic#hasLatitude> ?lat3.
+	?v3 <http://www.insight-centre.org/citytraffic#hasLongitude> ?lng3.
+	?obId3 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#UserLocationService>.
+	}
+}
+
+Filter (((?avglat-?lat1)*(?avglat-?lat1)+(?lng3-?avglng)*(?lng3-?avglng)) < 0.1)
+
+}

@@ -1,0 +1,7 @@
+impl	instance	items	tp	winsize	total_time	init_time	add_time
+Doyle	cachingStatTimeNonDet	1	1000	20	32.383	0.008   0.036
+Doyle	cachingStatTimeNonDet	1	1000	40	34.22	0.013	0.040
+Doyle	cachingStatTimeNonDet	1	1000	80	34.229	0.014	0.040
+Doyle	cachingStatTimeNonDet	1	1000	120	35.87	0.014	0.040
+Doyle	cachingStatTimeNonDet	1	1000	160	35.711	0.014	0.039
+Doyle	cachingStatTimeNonDet	1	1000	200	36.434	0.014	0.040

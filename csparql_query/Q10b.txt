@@ -1,0 +1,11 @@
+
+select ?obId2
+from stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusPollutionData184892> [range 3s step 1s] 
+from <http://127.0.0.1:9000/WebGlCity/RDF/SensorRepository.rdf> 
+where {
+
+{?obId2 a ?ob.
+?obId2 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p2.
+?obId2 <http://purl.oclc.org/NET/sao/hasValue> ?v2.
+?obId2 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusPollutionData184892>.
+}}

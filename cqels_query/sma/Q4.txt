@@ -1,0 +1,15 @@
+select ?parkingCapacity ?lat4 ?lng4 
+where {
+
+stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0> [range 3s]
+
+{
+?p4  a <http://www.insight-centre.org/citytraffic#ParkingVacancy>.
+?p4 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi4.
+?foi4 <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat4.
+?foi4 <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng4.
+?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p4.
+?obId4 <http://purl.oclc.org/NET/sao/hasValue> ?parkingCapacity.
+?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0>.
+}
+}

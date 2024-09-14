@@ -1,0 +1,37 @@
+select ?foi ?congestion ?lat3 ?lng3 ?parkingCapacity
+
+where {
+
+
+stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0> [range 10s slide 1s] {
+	?p1   a <http://www.insight-centre.org/citytraffic#CongestionLevel>.
+	?p1 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi.
+	?foi <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat1.
+	?foi <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng1.
+	?foi <http://www.insight-centre.org/citytraffic#hasEndLatitude> ?lat2.
+	?foi <http://www.insight-centre.org/citytraffic#hasEndLongitude> ?lng2.
+
+	?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p1.
+	?obId1 <http://purl.oclc.org/NET/sao/hasValue> ?congestion.
+	?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0>.
+}
+
+stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0> [range 10s slide 1s] {
+	?p4   a <http://www.insight-centre.org/citytraffic#ParkingVacancy>.
+	?p4 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi4.
+	?foi4 <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat4.
+	?foi4 <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng4.
+	?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p4.
+	?obId4 <http://purl.oclc.org/NET/sao/hasValue> ?parkingCapacity.
+	?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0>.
+}
+
+
+stream <http://www.insight-centre.org/dataset/SampleEventService#UserLocationService> [range 10s slide 1s] { 
+	?v3 <http://www.insight-centre.org/citytraffic#hasLatitude> ?lat3.
+	?v3 <http://www.insight-centre.org/citytraffic#hasLongitude> ?lng3.	 
+}
+
+Filter (((?lat3-?lat1)*(?lat3-?lat1)+(?lng3-?lng1)*(?lng3-?lng1)) < 0.2 && ((?lat3-?lat4)*(?lat3-?lat4)+(?lng3-?lng4)*(?lng3-?lng4)) < 0.2)
+
+}

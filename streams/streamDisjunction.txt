@@ -1,0 +1,1 @@
+<http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0> <streams/sensor1.n3> 2

@@ -1,0 +1,48 @@
+CONSTRUCT {
+	_:c0 a <http://www.insight-centre.org/citytraffic#CongestionLevel> .
+    _:c0 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi . 
+	
+}
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0> [range 10s step 10s]
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#UserLocationService> [range 10s step 10s]
+ from stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0> [range 10s step 10s]
+where {
+
+?p1   a <http://www.insight-centre.org/citytraffic#CongestionLevel>.
+?p1 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi.
+?foi <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat1.
+?foi <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng1.
+?foi <http://www.insight-centre.org/citytraffic#hasEndLatitude> ?lat2.
+?foi <http://www.insight-centre.org/citytraffic#hasEndLongitude> ?lng2.
+
+?p4   a <http://www.insight-centre.org/citytraffic#ParkingVacancy>.
+?p4 <http://purl.oclc.org/NET/ssnx/ssn#isPropertyOf> ?foi4.
+?foi4 <http://www.insight-centre.org/citytraffic#hasStartLatitude> ?lat4.
+?foi4 <http://www.insight-centre.org/citytraffic#hasStartLongitude> ?lng4.
+
+{
+?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p1.
+?obId1 <http://purl.oclc.org/NET/sao/hasValue> ?congestion.
+?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0>.
+}
+
+{
+?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p4.
+?obId4 <http://purl.oclc.org/NET/sao/hasValue> ?parkingCapacity.
+?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0>.
+}
+
+{ select ( AVG (?lat3 ) AS ?avglat ) ( AVG (?lng3 ) AS ?avglng ) 
+	where 
+	{ 
+	?obId3 a ?ob.
+	?obId3 <http://purl.oclc.org/NET/sao/hasValue> ?v3.
+	?v3 <http://www.insight-centre.org/citytraffic#hasLatitude> ?lat3.
+	?v3 <http://www.insight-centre.org/citytraffic#hasLongitude> ?lng3.
+	?obId3 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#UserLocationService>.
+	}
+}
+
+Filter (((?avglat-?lat1)*(?avglat-?lat1)+(?avglng-?lng1)*(?avglng-?lng1)) < 0.4 && ((?avglat-?lat4)*(?avglat-?lat4)+(?avglng-?lng4)*(?avglng-?lng4)) < 0.4)
+
+}

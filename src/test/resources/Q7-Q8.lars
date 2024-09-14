@@ -1,0 +1,2 @@
+trafficDense :- congestionHigh [10 sec].
+congestionHigh at T :- congestion at T in [5 sec].

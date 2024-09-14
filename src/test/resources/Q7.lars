@@ -1,0 +1,4 @@
+trafficDense(I) :- congestionHigh at T [10 sec], accident(I).
+congestionHigh :- congestion at T in [5 sec].
+
+

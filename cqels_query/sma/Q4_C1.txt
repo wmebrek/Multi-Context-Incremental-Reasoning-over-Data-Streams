@@ -1,0 +1,21 @@
+select ?congestion ?parkingCapacity
+
+where {
+
+
+stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0> [range 3s] {
+	?p1  a <http://www.insight-centre.org/citytraffic#CongestionLevel>.
+	?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p1.
+	?obId1 <http://purl.oclc.org/NET/sao/hasValue> ?congestion.
+	?obId1 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusTrafficData0>.
+}
+
+stream <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0> [range 3s] {
+	?p4  a <http://www.insight-centre.org/citytraffic#ParkingVacancy>.
+	?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedProperty> ?p4.
+	?obId4 <http://purl.oclc.org/NET/sao/hasValue> ?parkingCapacity.
+	?obId4 <http://purl.oclc.org/NET/ssnx/ssn#observedBy> <http://www.insight-centre.org/dataset/SampleEventService#AarhusParkingData0>.
+}
+
+
+}

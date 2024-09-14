@@ -1,0 +1,7 @@
+impl	instance	items	tp	winsize	total_time	init_time	add_time
+Doyle	content1	1	1000	20	27.793	0.01	0.017
+Doyle	content1	1	1000	40	30.918	0.012	0.018
+Doyle	content1	1	1000	80	36.087	0.014	0.037
+Doyle	content1	1	1000	120	48.201	0.015	0.046
+Doyle	content1	1	1000	160	71.747	0.014	0.069
+Doyle	content1	1	1000	200	85.16	0.016	0.082

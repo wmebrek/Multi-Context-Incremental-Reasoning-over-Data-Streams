@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <Ontology rdf:about="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl">
+        <imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <cpannotationschema:coversRequirements rdf:datatype="http://www.w3.org/2001/XMLSchema#string">What is the time interval between two specific timestamps in the form of dates?</cpannotationschema:coversRequirements>
+        <cpannotationschema:hasIntent rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This pattern allows us to represent a temporal distance between two timestamps within an observation process in a SmartHome. There are other situations where we need to measure the interval (temporal distance) in the form of time steps regardless of the exact dates indicating the boundaries of the interval. The latter case is used when we want to define a complex event based on the temporal distance with its preconditions.</cpannotationschema:hasIntent>
+        <cpannotationschema:coversRequirements rdf:datatype="http://www.w3.org/2001/XMLSchema#string">What is the temporal distance between two specific time steps?</cpannotationschema:coversRequirements>
+        <cpannotationschema:hasConsequences rdf:datatype="http://www.w3.org/2001/XMLSchema#string">We can quantitavely represent temporal distances through  an observation process for different purposes . These purposes include 
+definition of an event in terms of its preconditions whose occurance timestamp is within a specific temporal distance with that of the event.</cpannotationschema:hasConsequences>
+        <cpannotationschema:coversRequirements rdf:datatype="http://www.w3.org/2001/XMLSchema#string">What is the starting/ending timestamp?</cpannotationschema:coversRequirements>
+        <cpannotationschema:isSpecializationOf rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The pattern extends &quot;http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval&quot; to be used in SmartHome</cpannotationschema:isSpecializationOf>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasLowerTimestampValue -->
+
+    <DatatypeProperty rdf:about="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasLowerTimestampValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue"/>
+        <rdfs:domain rdf:resource="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#SmartHomeTimeInterval"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasUpperTimestampValue -->
+
+    <DatatypeProperty rdf:about="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasUpperTimestampValue">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue"/>
+        <rdfs:domain rdf:resource="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#SmartHomeTimeInterval"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue -->
+
+    <DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#SmartHomeTemporalDistance -->
+
+    <Class rdf:about="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#SmartHomeTemporalDistance">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasLowerTimestampValue"/>
+                <someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasUpperTimestampValue"/>
+                <someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#SmartHomeTimeInterval -->
+
+    <Class rdf:about="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#SmartHomeTimeInterval">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasLowerTimestampValue"/>
+                <someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="http://ecareathome-ontology.mpi.aass.oru.se/patterns/SmartHome_TimeInterval.owl#hasUpperTimestampValue"/>
+                <someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval -->
+
+    <Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

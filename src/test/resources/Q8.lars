@@ -1,0 +1,2 @@
+parkingDense :- parkingHigh [10 sec].
+parkingHigh at T :- parkingVacancy at T in [5 sec].
